@@ -18,8 +18,11 @@ export const App: React.FC = () => {
         data-cy="all-button"
         onClick={() => {
           getAll()
-            .then(data => setGoods(data))
-            .catch(error => setErrorMessage(error));
+            .then(data => {
+              setGoods(data);
+              setErrorMessage('');
+            })
+            .catch(error => setErrorMessage(error.message));
         }}
       >
         Load all goods
@@ -30,7 +33,10 @@ export const App: React.FC = () => {
         data-cy="first-five-button"
         onClick={() => {
           get5First()
-            .then(data => setGoods(data))
+            .then(data => {
+              setGoods(data);
+              setErrorMessage('');
+            })
             .catch(error => setErrorMessage(error));
         }}
       >
@@ -42,7 +48,10 @@ export const App: React.FC = () => {
         data-cy="red-button"
         onClick={() => {
           getRed()
-            .then(data => setGoods(data))
+            .then(data => {
+              setGoods(data);
+              setErrorMessage('');
+            })
             .catch(error => setErrorMessage(error));
         }}
       >
